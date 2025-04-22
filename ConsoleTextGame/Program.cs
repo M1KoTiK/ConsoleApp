@@ -1,11 +1,12 @@
-﻿using ConsoleTextGame;
-using ConsoleTextGame.Converters;
+﻿using ConsoleTextGame.Converters;
+using ConsoleTextGame.GameObject.Menu;
 
-var gm = new GameMenu("Выберите вариант",new List<GameMenuItem>()
+var gm = new Menu("m1", "Выберите вариант", new List<MenuItem>()
 {
-    new GameMenuItem("1","Выбор1",()=>{ }),
-    new GameMenuItem("2","Выбор2",()=>{ })
+    new MenuItem("1","Посчитать 2+2", ()=>{ Console.Clear(); Console.WriteLine("4"); } ),
+    new MenuItem("2","Вывести Hello, World!",()=>{ Console.Clear(); Console.WriteLine("Hello, World"); })
 });
 
-gm.ElementAction.Invoke();
+gm.OpenMenu();
+Console.ReadKey();
 

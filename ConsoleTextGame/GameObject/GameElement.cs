@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleTextGame.GameObject
+{
+    public abstract class GameElement : IGameElement
+    {
+        public abstract string Description { get; } 
+
+        public string Id { get; }
+        protected Action? PrintAction { get; set; }
+        protected Action? ExecuteAction { get; set; }
+
+        public GameElement(string id, Action? printAction = null, Action? executeAction = null)
+        {
+            Id = id;
+            PrintAction = printAction;
+            ExecuteAction = executeAction;
+        }
+
+        public void Print()
+        {
+            if (PrintAction == null) return;
+            PrintAction.Invoke();
+        }
+
+        public void Execute()
+        {   if (ExecuteAction == null) return;
+            ExecuteAction.Invoke();
+        }
+    }
+}

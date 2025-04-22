@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame
+namespace ConsoleTextGame.GameObject
 {
     public interface IGameElement
     {   
-        string Name { get; }
         string Id { get; }
-        string Content { get; }
-        public Action PrintAction { get;}
-        public void PrintAndRequest();
+        public void Print();
+        public void Execute();
     }
 }

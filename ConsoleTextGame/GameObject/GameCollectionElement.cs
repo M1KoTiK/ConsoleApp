@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame
+namespace ConsoleTextGame.GameObject
 {
     public interface GameCollectionElement<T>: IGameElement
     {
