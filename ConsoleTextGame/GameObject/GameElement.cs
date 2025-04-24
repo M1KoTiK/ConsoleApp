@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleTextGame.GameObject
 {
-    public abstract class GameElement : IGameElement
+    public abstract class Element : IElement
     {
-        public abstract string Description { get; } 
-
         public string Id { get; }
         protected Action? PrintAction { get; set; }
         protected Action? ExecuteAction { get; set; }
 
-        public GameElement(string id, Action? printAction = null, Action? executeAction = null)
+        public Element(string id, Action? printAction = null, Action? executeAction = null)
         {
             Id = id;
             PrintAction = printAction;

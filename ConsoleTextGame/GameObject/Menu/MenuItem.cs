@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleTextGame.GameObject.Menu
 {
-    public class MenuItem : GameElement
+    public class MenuItem : Element
     {
-        public override string Description => "Пункт меню";
         public string Separator { get; set; } = " : ";
         public string Marker { get; set; } = " ";
         public string ItemContent { get; set; }

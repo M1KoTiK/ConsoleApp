@@ -9,8 +9,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleTextGame.GameObject.Menu
 {
-    public class Menu : GameElement, GameCollectionElement<MenuItem>
+    public class Menu : Element, ICollectionElement<MenuItem>
     {
+        public void OpenMenu()
+        {
+            Print();
+            Execute();
+        }
+
         public string Header { get; set; }
         public string RequestTitle { get; set; } = "Выберите ответ";
         public Menu(string id, string header, IEnumerable<MenuItem> gameMenuItems) : base(id)
@@ -39,12 +45,7 @@ namespace ConsoleTextGame.GameObject.Menu
             items = new List<MenuItem>();
             Add(gameMenuItems);
         }
-        public void OpenMenu()
-        {
-            Print();
-            Execute();
-        }
-        public override string Description => "Меню";
+       
 
         private List<MenuItem> items;
 
