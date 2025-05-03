@@ -19,7 +19,7 @@ namespace ConsoleTextGame.GameObject.Menu
 
         public string Header { get; set; }
         public string RequestTitle { get; set; } = "Выберите ответ";
-        public Menu(string id, string header, IEnumerable<MenuItem> gameMenuItems) : base(id)
+        public Menu(string id, string header, IList<MenuItem> gameMenuItems) : base(id)
         {
             Header = header;
             PrintAction = () =>
@@ -50,7 +50,7 @@ namespace ConsoleTextGame.GameObject.Menu
         private List<MenuItem> items;
 
 
-        public IEnumerable<MenuItem> Items => items;
+        public IList<MenuItem> Items => items;
 
         public void Clear()
         {

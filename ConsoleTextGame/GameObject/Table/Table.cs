@@ -8,24 +8,34 @@ namespace ConsoleTextGame.GameObject.Table
 {
     public class Table<T> : Element, ICollectionElement<ITableRow<T>>
     {
-        public Table(string id, ICollection<ITableRow<T>> table, Action? printAction = null, Action? executeAction = null) : base(id, printAction, executeAction)
+        public IList<ITableRow<T>> Items { get; }
+        public Table(string id, IList<ITableRow<T>> table, Action? printAction = null, Action? executeAction = null) : base(id, printAction, executeAction)
         {
             PrintAction = Print;
-            this.table = table;
+            this.Items = table;
         }
-        private ICollection<ITableRow<T>> table;
         private void Print()
         {
-            foreach(var row in table)
+            Items[0].PrintTopLine();
+            Console.WriteLine();
+            for(var i = 0; i < Items.Count - 1; i++)
             {
-                row.PrintInTop();
+                Items[i].PrintElementLine();
+                Console.WriteLine();
+                Items[i].PrintSeparatorLine();
+                Console.WriteLine();
             }
+            Items[Items.Count-1].PrintElementLine();
+            Console.WriteLine();
+            Items[Items.Count-1].PrintBottomLine();
         }
+
         public void PrintTable()
         {
             if (PrintAction == null) return;
             PrintAction.Invoke();
         }
-        public IEnumerable<ITableRow<T>> Items { get ;}
+
+
     }
 }

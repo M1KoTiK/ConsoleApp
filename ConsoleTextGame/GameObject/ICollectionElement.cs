@@ -8,6 +8,6 @@ namespace ConsoleTextGame.GameObject
 {
     public interface ICollectionElement<T>: IElement
     {
-        public IEnumerable<T> Items { get; }
+        public IList<T> Items { get; }
     }
 }

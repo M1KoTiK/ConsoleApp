@@ -13,7 +13,7 @@ namespace ConsoleTextGame.GameObject.Table
         string LeftBottomCorner { get; set; } 
         string RightBottomCorner { get; set; } 
         string TopBottomBorder { get; set; } 
-        string LeftRightBorder { get; set; }
+        string LeftRightBorderOrSeparator { get; set; }
         string RightSeparatorBorder { get; set; }
         string LeftSeparatorBorder { get; set; }
         public string MiddleSeparator { get; set; }

@@ -9,9 +9,11 @@ namespace ConsoleTextGame.GameObject.Table
 {
     public class TableRow<T> : ITableRow<T>
     {
-        public ICollection<T> Row { get; set; }
+        public IList<T> Row { get; set; }
+        public IList<int> ColumnSize { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private ITableCharacterSet characterSet;
-        public TableRow(ICollection<T> row, ITableCharacterSet characterSet)
+        public TableRow(IList<T> row, ITableCharacterSet characterSet)
         {
             Row = row;
             this.characterSet = characterSet;
@@ -29,25 +31,10 @@ namespace ConsoleTextGame.GameObject.Table
         private List<int> symbolsCount = new List<int>();
 
 
-        public void PrintInTop()
-        {
-            PrintHeaderLine();
-        }
-
-        public void PrintInMiddle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrintInBottom()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PrintHeaderLine()
+        public void PrintTopLine()
         {
             Console.Write(characterSet.LeftTopCorner);
-            for(int i = 0; i < symbolsCount.Count; i++)
+            for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
                 if (i < symbolsCount.Count - 1)
@@ -59,6 +46,64 @@ namespace ConsoleTextGame.GameObject.Table
                 {
                     Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
                     Console.Write(characterSet.RightTopCorner);
+                }
+            }
+        }
+
+        public void PrintElementLine()
+        {
+            Console.Write(characterSet.LeftRightBorderOrSeparator);
+            for (int i = 0; i < symbolsCount.Count; i++)
+            {
+                var lenght = symbolsCount[i];
+                if (i < symbolsCount.Count - 1)
+                {
+                    Console.Write(Row[i]);
+                    Console.Write(characterSet.LeftRightBorderOrSeparator);
+                }
+                else
+                {
+                    Console.Write(Row[i]);
+                    Console.Write(characterSet.LeftRightBorderOrSeparator);
+                }
+            }
+        }
+
+        public void PrintBottomLine()
+        {
+            Console.Write(characterSet.LeftBottomCorner);
+            for (int i = 0; i < symbolsCount.Count; i++)
+            {
+                var lenght = symbolsCount[i];
+                if (i < symbolsCount.Count - 1)
+                {
+                    Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
+                    Console.Write(characterSet.BottomSeparator);
+                }
+                else
+                {
+                    Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
+                    Console.Write(characterSet.RightBottomCorner);
+                }
+            }
+        }
+
+
+        public void PrintSeparatorLine()
+        {
+            Console.Write(characterSet.LeftSeparatorBorder);
+            for (int i = 0; i < symbolsCount.Count; i++)
+            {
+                var lenght = symbolsCount[i];
+                if (i < symbolsCount.Count - 1)
+                {
+                    Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
+                    Console.Write(characterSet.MiddleSeparator);
+                }
+                else
+                {
+                    Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
+                    Console.Write(characterSet.RightSeparatorBorder);
                 }
             }
         }

@@ -8,22 +8,23 @@ namespace ConsoleTextGame.GameObject.Table
 {
     public interface ITableRow<T>
     {
-        public ICollection<T> Row { get; set; }
-
+        public IList<T> Row { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public void PrintInTop();
+        public void PrintTopLine();
 
         /// <summary>
         /// Отрисовка таблицы с краями 
         /// c разделениями от предыдущей строки
         /// </summary>
-        public void PrintInMiddle();
+        public void PrintElementLine();
+
+        public void PrintSeparatorLine();
 
         /// <summary>
         /// 
         /// </summary>
-        public void PrintInBottom();
+        public void PrintBottomLine();
     }
 }
