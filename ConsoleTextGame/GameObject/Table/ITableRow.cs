@@ -12,19 +12,19 @@ namespace ConsoleTextGame.GameObject.Table
         /// <summary>
         /// 
         /// </summary>
-        public void PrintTopLine();
+        public void PrintTopLine(IList<int> widths);
 
         /// <summary>
         /// Отрисовка таблицы с краями 
         /// c разделениями от предыдущей строки
         /// </summary>
-        public void PrintElementLine();
+        public void PrintElementLine(IList<int> widths);
 
-        public void PrintSeparatorLine();
+        public void PrintSeparatorLine(IList<int> widths);
 
         /// <summary>
         /// 
         /// </summary>
-        public void PrintBottomLine();
+        public void PrintBottomLine(IList<int> widths);
     }
 }

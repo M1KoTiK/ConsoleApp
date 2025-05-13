@@ -31,12 +31,18 @@ namespace ConsoleTextGame.GameObject.Table
         private List<int> symbolsCount = new List<int>();
 
 
-        public void PrintTopLine()
+        public void PrintTopLine(IList<int> widths)
         {
+
             Console.Write(characterSet.LeftTopCorner);
             for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
+                
+                if (lenght < widths[i])
+                {
+                    lenght = widths[i];
+                }
                 if (i < symbolsCount.Count - 1)
                 {
                     Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
@@ -50,31 +56,43 @@ namespace ConsoleTextGame.GameObject.Table
             }
         }
 
-        public void PrintElementLine()
+        public void PrintElementLine(IList<int> widths)
         {
             Console.Write(characterSet.LeftRightBorderOrSeparator);
             for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
+                if (lenght < widths[i])
+                {
+                    lenght = widths[i];
+                }
                 if (i < symbolsCount.Count - 1)
                 {
+                    var countSpaces = lenght - symbolsCount[i];
                     Console.Write(Row[i]);
+                    Console.Write(" ".Multiply(countSpaces));
                     Console.Write(characterSet.LeftRightBorderOrSeparator);
                 }
                 else
                 {
+                    var countSpaces = lenght - symbolsCount[i];
                     Console.Write(Row[i]);
+                    Console.Write(" ".Multiply(countSpaces));
                     Console.Write(characterSet.LeftRightBorderOrSeparator);
                 }
             }
         }
 
-        public void PrintBottomLine()
+        public void PrintBottomLine(IList<int> widths)
         {
             Console.Write(characterSet.LeftBottomCorner);
             for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
+                if (lenght < widths[i])
+                {
+                    lenght = widths[i];
+                }
                 if (i < symbolsCount.Count - 1)
                 {
                     Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
@@ -89,12 +107,16 @@ namespace ConsoleTextGame.GameObject.Table
         }
 
 
-        public void PrintSeparatorLine()
+        public void PrintSeparatorLine(IList<int> widths)
         {
             Console.Write(characterSet.LeftSeparatorBorder);
             for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
+                if (lenght < widths[i])
+                {
+                    lenght = widths[i];
+                }
                 if (i < symbolsCount.Count - 1)
                 {
                     Console.Write(characterSet.TopBottomBorder.Multiply(lenght));
