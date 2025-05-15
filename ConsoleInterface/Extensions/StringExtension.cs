@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.Extensions
+namespace ConsoleInterface.Extensions
 {
     public static class StringExtension
     {

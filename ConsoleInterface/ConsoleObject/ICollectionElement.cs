@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject
+namespace ConsoleInterface.ConsoleObject
 {
-    public interface IPositionable
+    public interface ICollectionElement<T>: IElement
     {
-        int X {  get; set; }
-        int Y { get; set; }
+        public IList<T> Items { get; }
     }
 }

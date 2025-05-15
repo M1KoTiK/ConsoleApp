@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject
+namespace ConsoleInterface.ConsoleObject
 {
     public abstract class Element : IElement, IPositionable
     {

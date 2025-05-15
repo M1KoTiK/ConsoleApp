@@ -1,11 +1,11 @@
-﻿using ConsoleTextGame.Extensions;
+﻿using ConsoleInterface.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject.Table
+namespace ConsoleInterface.ConsoleObject.Table
 {
     public class TableRow<T> : ITableRow<T>
     {

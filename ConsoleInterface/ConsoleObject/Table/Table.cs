@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject.Table
+namespace ConsoleInterface.ConsoleObject.Table
 {
     public class Table<T> : Element, ICollectionElement<ITableRow<T>>
     {
@@ -13,6 +13,7 @@ namespace ConsoleTextGame.GameObject.Table
         {
             PrintAction = Print;
             this.Items = table;
+
         }
         private void Print()
         {

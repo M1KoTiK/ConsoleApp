@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject.Table
+namespace ConsoleInterface.ConsoleObject.Table
 {
     public interface ITableRow<T>
     {

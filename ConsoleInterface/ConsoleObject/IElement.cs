@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject
+namespace ConsoleInterface.ConsoleObject
 {
     public interface IElement
     {   

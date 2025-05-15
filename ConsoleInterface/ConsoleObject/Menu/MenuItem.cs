@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject.Menu
+namespace ConsoleInterface.ConsoleObject.Menu
 {
     public class MenuItem : Element
     {

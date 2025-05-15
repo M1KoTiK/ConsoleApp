@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame.GameObject
+namespace ConsoleInterface
 {
-    public interface ICollectionElement<T>: IElement
+    public class ConsoleUtils
     {
-        public IList<T> Items { get; }
+
     }
 }

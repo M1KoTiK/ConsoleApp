@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextGame
+namespace ConsoleInterface.ConsoleObject
 {
-    public interface ISerialization
+    public interface IPositionable
     {
-        public string Key { get; }
+        int X {  get; set; }
+        int Y { get; set; }
     }
 }
