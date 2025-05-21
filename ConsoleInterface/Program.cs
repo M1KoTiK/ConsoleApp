@@ -27,8 +27,9 @@ using System.Runtime.Intrinsics.X86;
 //gTable.PrintTable();
 
 var storage = HotelStorageContext.Instance;
-var hotel = new HotelModel() { Name = "Крутой Отель1", City = "Новосибирск", Price = 1, Capacity = 2 };
-storage.WriteTables(Enumerable.Repeat(hotel, 1));
+storage.FillStorageRandomHotels(10);
+var fileInfo = new FileInfo(storage.StorageFilePath);
+fileInfo.CopyTo("C:\\Users\\User\\Desktop\\HotelStorage.txt", true);
 var tables = storage.ReadTables();
 Console.ReadKey();
 //[DllImport("user32.dll")]

@@ -9,6 +9,7 @@ namespace ConsoleTextInterface.DataBase
 {
     public interface StorageContext<T>
     {
+        public void Clear();
         public void DeleteTables(IEnumerable<T> tables);
         public void WriteTables(IEnumerable<T> tables);
         public IEnumerable<T> ReadTables(int count = -1);

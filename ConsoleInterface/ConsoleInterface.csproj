@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <None Update="Storage\HotelStorage\HotelStorage.txt">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
