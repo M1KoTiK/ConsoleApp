@@ -3,24 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp.ConsoleObject.Table.TableRows;
 
-namespace ConsoleInterface.ConsoleObject.Table
+namespace ConsoleApp.ConsoleObject.Table
 {
-    public class Table<T> : Element, ICollectionElement<ITableRow<T>>
+    public class Table : Element, ICollectionElement<ITableRow>
     {
-        public IList<ITableRow<T>> Items { get; }
-        public Table(string id, IList<ITableRow<T>> table, Action? printAction = null, Action? executeAction = null) : base(id, printAction, executeAction)
+        public IList<ITableRow> Items { get; }
+        public ITableRow Headers { get; set; }
+        public Table(string id, IList<ITableRow> table) : base(id)
         {
-            PrintAction = Print;
             this.Items = table;
-
         }
-        private void Print()
+
+        public override void Print()
         {
             var measures = ColumnMeasure();
 
             Items[0].PrintTopLine(measures);
             Console.WriteLine();
+            if (Headers != null)
+            {
+                Headers.PrintElementLine(measures);
+                Console.WriteLine();
+                Headers.PrintSeparatorLine(measures);
+                Console.WriteLine();
+            }
+
             for(var i = 0; i < Items.Count - 1; i++)
             {
                 Items[i].PrintElementLine(measures);
@@ -33,11 +42,6 @@ namespace ConsoleInterface.ConsoleObject.Table
             Items[Items.Count-1].PrintBottomLine(measures);
         }
 
-        public void PrintTable()
-        {
-            if (PrintAction == null) return;
-            PrintAction.Invoke();
-        }
         private int ColumnCount()
         {
 

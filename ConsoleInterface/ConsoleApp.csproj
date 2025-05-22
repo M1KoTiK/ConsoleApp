@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Storage\HotelStorage\HotelStorage.txt">
+    <None Remove="Storage\HotelStorage\HotelStorage.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Storage\HotelStorage\HotelStorage.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>

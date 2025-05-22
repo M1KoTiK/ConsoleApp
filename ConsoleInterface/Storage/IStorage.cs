@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace ConsoleTextInterface.DataBase
+namespace ConsoleApp.DataBase
 {
-    public interface StorageContext<T>
+    public interface IStorage<T>
     {
         public void Clear();
-        public void DeleteTables(IEnumerable<T> tables);
-        public void WriteTables(IEnumerable<T> tables);
+        public void DeleteTable(T tables);
+        public void WriteTable(T table);
         public IEnumerable<T> ReadTables(int count = -1);
     }
 }

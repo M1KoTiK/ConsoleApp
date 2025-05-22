@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterface.ConsoleObject
+namespace ConsoleApp.ConsoleObject
 {
     public interface IPositionable
     {

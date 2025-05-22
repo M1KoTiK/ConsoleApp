@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterface.ConsoleObject.Table
+namespace ConsoleApp.ConsoleObject.Table.CharSet
 {
-    public class StandartTableCharacterSet : ITableCharacterSet
-    {   
+    public class TableCharSet : ITableCharSet
+    {
         public string LeftTopCorner { get; set; } = "┌";
         public string RightTopCorner { get; set; } = "┐";
         public string LeftBottomCorner { get; set; } = "└";
@@ -19,7 +20,5 @@ namespace ConsoleInterface.ConsoleObject.Table
         public string MiddleSeparator { get; set; } = "┼";
         public string BottomSeparator { get; set; } = "┴";
         public string TopSeparator { get; set; } = "┬";
-
-        public static ITableCharacterSet Instance => new StandartTableCharacterSet();
     }
 }

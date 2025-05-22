@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterface.ConsoleObject.Table
+namespace ConsoleApp.ConsoleObject.Table.TableRows
 {
-    public interface ITableRow<T>
+    public interface ITableRow
     {
-        public IList<T> Row { get; set; }
+        public IList<object> Row { get; set; }
         /// <summary>
         /// 
         /// </summary>

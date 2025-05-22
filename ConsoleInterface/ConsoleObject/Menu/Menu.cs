@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterface.ConsoleObject.Menu
+namespace ConsoleApp.ConsoleObject.Menu
 {
     public class Menu : Element, ICollectionElement<MenuItem>
     {
@@ -22,55 +22,33 @@ namespace ConsoleInterface.ConsoleObject.Menu
         public Menu(string id, string header, IList<MenuItem> gameMenuItems) : base(id)
         {
             Header = header;
-            PrintAction = () =>
-            {
-                Console.WriteLine(Header);
-                foreach (var item in Items)
-                {
-                    item.Print();
-                }
-            };
-            ExecuteAction = () =>
-            {
-                Console.WriteLine(RequestTitle);
-                var Answer = Console.ReadLine();
-                foreach (var item in Items) 
-                {
-                    if (item.Id == Answer)
-                    {
-                        item.Execute();
-                    }
-                }
-            };
-            items = new List<MenuItem>();
-            Add(gameMenuItems);
+            items = new List<MenuItem>(gameMenuItems);
+
         }
-       
+        public override void Print()
+        {
+            Console.WriteLine(Header);
+            foreach (var item in Items)
+            {
+                item.Print();
+            }
+        }
+        public override void Execute()
+        {
+            Console.WriteLine(RequestTitle);
+            var Answer = Console.ReadLine();
+            foreach (var item in Items)
+            {
+                if (item.Id == Answer)
+                {
+                    item.Execute();
+                }
+            }
+        }
 
         private List<MenuItem> items;
-
-
         public IList<MenuItem> Items => items;
 
-        public void Clear()
-        {
-            items.Clear();
-        }
-
-        public bool Add(MenuItem item)
-        {
-            items.Add(item);
-            return true;
-        }
-
-        public bool Add(IEnumerable<MenuItem> addedItems)
-        {
-            foreach (MenuItem item in addedItems)
-            {
-                items.Add(item);
-            }
-            return true;
-        }
         public void SetMarkerForItems(string marker)
         {
             foreach(var item in items)

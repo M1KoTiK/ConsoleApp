@@ -1,22 +1,28 @@
-﻿using ConsoleInterface.Extensions;
+﻿using ConsoleApp.ConsoleObject.Table.CharSet;
+using ConsoleApp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterface.ConsoleObject.Table
+namespace ConsoleApp.ConsoleObject.Table.TableRows
 {
-    public class TableRow<T> : ITableRow<T>
+    public abstract class TableRow : ITableRow
     {
-        public IList<T> Row { get; set; }
-        public IList<int> ColumnSize { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        private ITableCharacterSet characterSet;
-        public TableRow(IList<T> row, ITableCharacterSet characterSet)
+        public IList<object> Row { get; set; }
+        public TableRow(IList<object> row, ITableCharSet? characterSet = null)
         {
+            if (characterSet == null)
+            {
+                this.characterSet = new TableCharSet();
+            }
+            else
+            {
+                this.characterSet = characterSet;
+            }
+
             Row = row;
-            this.characterSet = characterSet;
             foreach (var item in row)
             {
                 if (item == null)
@@ -25,20 +31,19 @@ namespace ConsoleInterface.ConsoleObject.Table
                 }
                 symbolsCount.Add(item.ToString().Length);
             }
-
         }
 
+        private ITableCharSet characterSet;
         private List<int> symbolsCount = new List<int>();
 
 
         public void PrintTopLine(IList<int> widths)
         {
-
             Console.Write(characterSet.LeftTopCorner);
             for (int i = 0; i < symbolsCount.Count; i++)
             {
                 var lenght = symbolsCount[i];
-                
+
                 if (lenght < widths[i])
                 {
                     lenght = widths[i];

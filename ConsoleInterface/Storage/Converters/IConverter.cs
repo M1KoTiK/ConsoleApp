@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTextInterface.Storage.Converters
+namespace ConsoleApp.Storage.Converters
 {
 
     public interface IConverter<T>
