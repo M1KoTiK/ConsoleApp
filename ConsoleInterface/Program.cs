@@ -108,6 +108,7 @@ class Program
         storage.DeleteTable(new Hotel() { Id = Id});
         Console.WriteLine($"Запись с id {Id} удалена");
         Console.ReadKey();
+        ExecuteStartMenu(true);
     }
     static void AddHotel()
     {
