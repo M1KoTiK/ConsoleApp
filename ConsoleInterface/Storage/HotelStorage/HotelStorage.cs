@@ -93,17 +93,14 @@ namespace ConsoleApp.DataBase.HotelDB
 
         public void DeleteTable(Hotel table)
         {
-            var tempPath = Path.Combine(Path.GetTempPath(), "TempHotelStorage.txt"); ;
-            using var reader = new StreamReader(StorageFilePath);
-            using var writer = new StreamWriter(tempPath);
-            while (reader.ReadLine() is { } line)
+            var tables = ReadTables().ToList();
+            var tableToRemove = tables.FirstOrDefault(t => t.Id == table.Id);
+
+            if (tableToRemove != null)
             {
-                var hotelInLine = HotelConverter.Instance.Deserialize(line);
-                if (!(hotelInLine.Id == table.Id))
-                {
-                    writer.WriteLine(line);
-                }
+                tables.Remove(tableToRemove);
             }
+            WriteTables(tables);
         }
 
         public IEnumerable<Hotel> ReadTables(int count = -1)
